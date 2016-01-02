@@ -1,8 +1,8 @@
-package com.catalyst.collector.daos;
+package com.catalyst.project.daos;
 
 import java.util.List;
 
-import com.catalyst.collector.entities.TestData;
+import com.catalyst.project.entities.TestData;
 
 public interface TestDataDao {
 

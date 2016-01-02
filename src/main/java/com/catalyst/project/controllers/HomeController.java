@@ -1,4 +1,4 @@
-package com.catalyst.collector.controllers;
+package com.catalyst.project.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

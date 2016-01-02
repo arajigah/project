@@ -1,11 +1,13 @@
-package com.catalyst.collector.entities;
+package com.catalyst.project.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "test_data", schema = "Public")
 public class TestData {
 
 	@Id

@@ -1,6 +1,5 @@
-package com.catalyst.collector.daos.hibernate;
+package com.catalyst.project.daoimpl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -9,8 +8,8 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
-import com.catalyst.collector.daos.TestDataDao;
-import com.catalyst.collector.entities.TestData;
+import com.catalyst.project.daos.TestDataDao;
+import com.catalyst.project.entities.TestData;
 
 @Repository
 @Transactional
