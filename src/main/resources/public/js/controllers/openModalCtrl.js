@@ -2,12 +2,21 @@ angular.module('mainModule').controller('openModalCtrl', ['$scope','$uibModal', 
 
 	$scope.addCollapsed = true;
 	$scope.viewCollapsed = true;
+    
+    $scope.addCollapsedMenu = function(){
+        $scope.addCollapsed = false;
+        $scope.viewCollapsed = true;
+    }
+     $scope.viewCollapsedMenu = function(){
+        $scope.addCollapsed = true;
+        $scope.viewCollapsed = false;
+    }
 	
-	$scope.openModal1 = function(){
-		var modal1 = $uibModal.open({
+	$scope.openEnclosureModal = function(){
+		var enclosureModal = $uibModal.open({
             animation: true,
-            templateUrl: 'templates/modalInstance1.tpl.html',
-            controller: 'modalInstance1Ctrl'
+            templateUrl: 'templates/addEnclosure.tpl.html',
+            controller: 'addEnclosureCtrl'
         });
 	}
 	$scope.openModal2 = function(){

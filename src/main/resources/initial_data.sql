@@ -1,0 +1,1 @@
+INSERT INTO animal (animal_name, scientific_name, informational_link)VALUES ('Sumatran orangutan','Pongo abelii', 'link')

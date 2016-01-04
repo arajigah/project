@@ -11,10 +11,11 @@
         <link rel="stylesheet" type="text/css" href="css/angular-toastr.css" />
         <script type="text/javascript" src="js/angular-toastr.tpls.js"></script>
         <script src="js/app.js"></script>
-        <script src= "js/controllers/modalInstance1Ctrl.js"></script>
+        <script src= "js/controllers/addEnclosureCtrl.js"></script>
         <script src= "js/controllers/modalInstance2Ctrl.js"></script>
         <script src= "js/controllers/modalInstance3Ctrl.js"></script>
         <script src= "js/controllers/openModalCtrl.js"></script>
+        <script src="js/factories/enclosureFactory.js"></script>
 	</head>
 	<body>
 		<div id="angular" ng-app="mainModule">
@@ -26,13 +27,13 @@
                         </div>
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
-                                <li><a class = "nav-bar-option " ng-mouseover="addCollapsed = !addCollapsed">Add</a></li>
-                                <li><a class = "nav-bar-option " ng-mouseover="viewCollapsed = !viewCollapsed">View</a></li>
+                                <li><a class = "nav-bar-option " ng-mouseover="addCollapsedMenu()">Add</a></li>
+                                <li><a class = "nav-bar-option " ng-mouseover="viewCollapsedMenu()">View</a></li>
                             </ul>
                         </div>
                         <div ng-mouseleave="addCollapsed = !addCollapsed" uib-collapse="addCollapsed" class="nav-collapse collapse navbar-responsive-collapse">
                   				<ul class="nav">
-									<li><a ng-click="openModal1()">Modal1</a></li>
+									<li><a ng-click="openEnclosureModal()">Add Enclosure</a></li>
 	                                <li><a ng-click="openModal2()">Modal2</a></li>
 	                                <li><a ng-click="openModal3()">Modal3</a></li>
                     			</ul>
