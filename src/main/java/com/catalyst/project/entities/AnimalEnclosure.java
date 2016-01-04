@@ -39,7 +39,7 @@ public class AnimalEnclosure {
 	
 	@NotNull
 	@Column(name="feeding_time", columnDefinition = "TIME")
-	@JsonFormat(pattern="h:mm")
+	@JsonFormat(pattern="h:mm", timezone="PST")
 	private Date feedingTime;
 	 
 	@NotNull
