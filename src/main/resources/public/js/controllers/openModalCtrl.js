@@ -1,5 +1,8 @@
 angular.module('mainModule').controller('openModalCtrl', ['$scope','$uibModal', function($scope, $uibModal){
 
+	$scope.addCollapsed = true;
+	$scope.viewCollapsed = true;
+	
 	$scope.openModal1 = function(){
 		var modal1 = $uibModal.open({
             animation: true,

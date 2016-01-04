@@ -26,11 +26,24 @@
                         </div>
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
-                                <li><a class = "nav-bar-option " ng-click="openModal1()">Modal1</a></li>
-                                <li><a class = "nav-bar-option " ng-click="openModal2()">Modal2</a></li>
-                                <li><a class = "nav-bar-option " ng-click="openModal3()">Modal3</a></li>
+                                <li><a class = "nav-bar-option " ng-mouseover="addCollapsed = !addCollapsed">Add</a></li>
+                                <li><a class = "nav-bar-option " ng-mouseover="viewCollapsed = !viewCollapsed">View</a></li>
                             </ul>
                         </div>
+                        <div ng-mouseleave="addCollapsed = !addCollapsed" uib-collapse="addCollapsed" class="nav-collapse collapse navbar-responsive-collapse">
+                  				<ul class="nav">
+									<li><a ng-click="openModal1()">Modal1</a></li>
+	                                <li><a ng-click="openModal2()">Modal2</a></li>
+	                                <li><a ng-click="openModal3()">Modal3</a></li>
+                    			</ul>
+                    	</div>
+                    	<div ng-mouseleave="viewCollapsed = !viewCollapsed" uib-collapse="viewCollapsed" class="nav-collapse collapse navbar-responsive-collapse">
+                  				<ul class="nav">
+				                    <li class="active"><a href="#">Home</a></li>
+				                    <li><a href="#">Link</a></li>
+				                    <li><a href="#">Link</a></li>
+                    			</ul>
+                    	</div>
                     </div>
                 </nav>
                 </div>
