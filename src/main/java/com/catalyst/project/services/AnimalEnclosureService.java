@@ -8,7 +8,7 @@ public interface AnimalEnclosureService {
 
 	List<AnimalEnclosure> getAllAnimalEnclosures();
 
-	void addAnimalEnclosure(AnimalEnclosure animalEnclosure);
+	void addAnimalEnclosure(AnimalEnclosure animalEnclosure) throws Exception;
 
 	void updateAnaimalEnclosure(AnimalEnclosure animalEnclosure);
 

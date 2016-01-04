@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.catalyst.project.daos.AnimalEnclosureDao;
 import com.catalyst.project.entities.AnimalEnclosure;
 import com.catalyst.project.services.AnimalEnclosureService;
+import com.catalyst.project.validation.AnimalEnclosureValidation;
 
 @Service
 public class AnimalEnclosureServiceImpl implements AnimalEnclosureService {
@@ -15,15 +16,26 @@ public class AnimalEnclosureServiceImpl implements AnimalEnclosureService {
 	@Autowired
 	AnimalEnclosureDao animalEnclosureDao;
 	
+	@Autowired
+	AnimalEnclosureValidation animalEnclosureValidation;
+	
 	@Override
 	public List<AnimalEnclosure> getAllAnimalEnclosures() {
 		return animalEnclosureDao.getAllAnimalEnclosures(); 
 	}
 
 	@Override
-	public void addAnimalEnclosure(AnimalEnclosure animalEnclosure) {
-		animalEnclosureDao.addAnimalEncolsure(animalEnclosure);
-		
+	public void addAnimalEnclosure(AnimalEnclosure animalEnclosure) throws Exception {
+		try{
+			if(animalEnclosureValidation.validateAnimalEnclosure(animalEnclosure)){
+				animalEnclosureDao.addAnimalEncolsure(animalEnclosure);
+			}
+			else{
+				throw new Exception("Animal Enclosure Not Valid");
+			}
+		}catch(Exception e){
+			throw new Exception(e.getMessage());
+		}		
 	}
 
 	@Override
