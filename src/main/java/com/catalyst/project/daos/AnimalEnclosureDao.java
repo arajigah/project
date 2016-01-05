@@ -14,4 +14,6 @@ public interface AnimalEnclosureDao {
 
 	void deleteAnimalEnclosure(Integer enclosureId);
 
+	AnimalEnclosure getEnclosureById(Integer enclosureId);
+
 }

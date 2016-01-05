@@ -5,6 +5,12 @@ angular.module('mainModule').factory('enclosureFactory', ['$http', function($htt
         },
         addAnimalEnclosure : function(enclosure){
             return $http.post("/animalEnclosure", enclosure);
+        },
+        getAllEnclosures : function(){
+        	return $http.get("/animalEnclosure");
+        },
+        getEnclosureById : function(enclosureId){
+        	return $http.get("/animalEnclosure/" + enclosureId)
         }
     }
 }]);

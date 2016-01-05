@@ -45,11 +45,13 @@ public class AnimalEnclosureDaoImpl implements AnimalEnclosureDao {
 		
 	}
 	
-	public AnimalEnclosure getEnclosureById(int enclosureId){
-		return em.createQuery("SELECT a FROM AnimalEnclosure a WHERE a.animalEnclosureId = enclosureId", AnimalEnclosure.class)
+	@Override
+	public AnimalEnclosure getEnclosureById(Integer enclosureId){
+		return em.createQuery("SELECT a FROM AnimalEnclosure a WHERE a.animalEnclosureId = :enclosureId", AnimalEnclosure.class)
 				.setParameter("enclosureId", enclosureId)
 				.getSingleResult();
 	}
+
 
 	
 	

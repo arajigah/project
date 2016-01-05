@@ -1,4 +1,4 @@
-angular.module('mainModule').controller('addEnclosureCtrl', ['$scope', '$filter', '$uibModalInstance','toastr', 'enclosureFactory', function($scope, $filter, $uibModalInstance, toastr, enclosureFactory){
+angular.module('mainModule').controller('addEnclosureCtrl', ['$scope', '$filter', '$uibModalInstance','toastr', 'enclosureFactory', 'animalFactory', function($scope, $filter, $uibModalInstance, toastr, enclosureFactory, animalFactory){
 
 	$scope.hstep = 1;
     $scope.mstep = 5;
@@ -14,7 +14,9 @@ angular.module('mainModule').controller('addEnclosureCtrl', ['$scope', '$filter'
     
     
     $scope.enclosureConditionSettings = {externalIdProp: '', displayProp: 'enclosureCondition', idProp: 'enclosureConditionId', smartButtonMaxItems: 1, selectionLimit: 1};
-
+    $scope.animalSettings = {externalIdProp: 'animalId', displayProp: 'animalName', idProp: 'animalId', smartButtonMaxItems: 1, selectionLimit: 1};
+    
+    
     $scope.conditionData = enclosureFactory.getEnclosureConditions().then(
         function(success){
             $scope.enclosureConditions = success.data;
@@ -27,13 +29,23 @@ angular.module('mainModule').controller('addEnclosureCtrl', ['$scope', '$filter'
         $scope.enclosureConditions = error;
         }
     )
+    $scope.animalData = animalFactory.getAnimals().then(
+        function(success){
+            $scope.animals = success.data;
+        },
+        function(error){
+        $scope.enclosureConditions = error;
+        }
+    )
     
-    $scope.addEnclosure = function(enclosure, feedingTime, enclosureCondition){
+    $scope.addEnclosure = function(enclosure, feedingTime, enclosureCondition, enclosureAnimal){
         feedingTime.setSeconds(0);
         feedingTime.setMilliseconds(0);
         var feedingTimeJson = feedingTime.getTime();
         $scope.enclosure.feedingTime = {};
         $scope.enclosure.feedingTime = feedingTimeJson;
+        
+        $scope.enclosure.animal = enclosureAnimal;
         $scope.enclosure.enclosureCondition = {};
         $scope.enclosure.enclosureCondition = enclosureCondition;
         enclosureFactory.addAnimalEnclosure(enclosure).then(

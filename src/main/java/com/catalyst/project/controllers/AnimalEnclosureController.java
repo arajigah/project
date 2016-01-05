@@ -23,6 +23,11 @@ public class AnimalEnclosureController {
 		return animalEnclosureService.getAllAnimalEnclosures();
 	}
 	
+	@RequestMapping(value = "/animalEnclosure/{enclosureId}", method = RequestMethod.GET)
+	public AnimalEnclosure getAnimalEnclosureById(@PathVariable Integer enclosureId){
+		return animalEnclosureService.getAnimalEnclosureById(enclosureId);
+	}
+	
 	@RequestMapping(value = "/animalEnclosure", method = RequestMethod.POST)
 	public void addAnimalEnclosure(@RequestBody AnimalEnclosure animalEnclosure) throws Exception{
 		try{

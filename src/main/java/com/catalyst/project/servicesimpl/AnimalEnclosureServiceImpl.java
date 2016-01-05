@@ -49,4 +49,9 @@ public class AnimalEnclosureServiceImpl implements AnimalEnclosureService {
 		
 	}
 
+	@Override
+	public AnimalEnclosure getAnimalEnclosureById(Integer enclosureId) {
+		return animalEnclosureDao.getEnclosureById(enclosureId);
+	}
+
 }

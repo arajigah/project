@@ -13,4 +13,6 @@ public interface AnimalEnclosureService {
 	void updateAnaimalEnclosure(AnimalEnclosure animalEnclosure);
 
 	void deleteAnimalEnclosure(Integer enclosureId);
+
+	AnimalEnclosure getAnimalEnclosureById(Integer enclosureId);
 }
