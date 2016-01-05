@@ -11,6 +11,11 @@ import org.springframework.stereotype.Repository;
 import com.catalyst.project.daos.AnimalEnclosureDao;
 import com.catalyst.project.entities.AnimalEnclosure;
 
+/**
+ * Animal Enclosure DAO class, Handles all interactions with with AnimalEnclosure Table in the Database.
+ * 
+ * @author cmiller
+ */
 @Repository
 @Transactional
 public class AnimalEnclosureDaoImpl implements AnimalEnclosureDao {
@@ -18,6 +23,13 @@ public class AnimalEnclosureDaoImpl implements AnimalEnclosureDao {
 	@PersistenceContext
 	private EntityManager em;
 	
+	/**
+	 * 
+	 * Gets a list of all the Animal Enclosures from the Database
+	 * 
+	 * @return List <AnimalEnclosure>
+	 * @author cmiller
+	 */
 	@Override
 	public List<AnimalEnclosure> getAllAnimalEnclosures() {
 		return em.createQuery("SELECT a FROM AnimalEnclosure a", AnimalEnclosure.class).getResultList();
@@ -27,17 +39,31 @@ public class AnimalEnclosureDaoImpl implements AnimalEnclosureDao {
 		this.em = em;
 	}
 
-	@Override
-	public void addAnimalEncolsure(AnimalEnclosure animalEnclosure) {
-		em.merge(animalEnclosure);
-		
-	}
+	/** 
+	 * Adds the Animal Enclosure to the Database
+	 * 
+	 * @param AnimalEnclosure
+	 * @author cmiller
+	 */
+	
 
+	/**
+	 * Updates and existing AnimalEnclosure in the Database
+	 * 
+	 * @param AnimalEnclosure
+	 * @author cmiller
+	 */
 	@Override
 	public void updateAnimalEncolsure(AnimalEnclosure animalEnclosure) {
 		em.merge(animalEnclosure);	
 	}
 
+	/**
+	 * Gets a Enclosure by id then removes it from the Database
+	 * 
+	 * @param Integer animaleEnclosureId
+	 * @author cmiller
+	 */
 	@Override
 	public void deleteAnimalEnclosure(Integer enclosureId) {
 		AnimalEnclosure animalEnclosure = getEnclosureById(enclosureId);
@@ -45,6 +71,13 @@ public class AnimalEnclosureDaoImpl implements AnimalEnclosureDao {
 		
 	}
 	
+	/**
+	 * Gets an Animal Enclosre by its id from the Database
+	 * 
+	 * @param Integer animalEnclosureId
+	 * @return AnimalEnclosure
+	 * @author cmiller
+	 */
 	@Override
 	public AnimalEnclosure getEnclosureById(Integer enclosureId){
 		return em.createQuery("SELECT a FROM AnimalEnclosure a WHERE a.animalEnclosureId = :enclosureId", AnimalEnclosure.class)
@@ -54,5 +87,9 @@ public class AnimalEnclosureDaoImpl implements AnimalEnclosureDao {
 
 
 	
-	
+	@Override
+	public void addAnimalEncolsure(AnimalEnclosure animalEnclosure) {
+		em.merge(animalEnclosure);
+		
+	}
 }
