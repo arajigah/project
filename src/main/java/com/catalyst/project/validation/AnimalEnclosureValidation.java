@@ -11,10 +11,20 @@ public class AnimalEnclosureValidation {
 
 	public boolean validateAnimalEnclosure(AnimalEnclosure animalEnclosure) throws Exception{
 		return validateAnimalEnclosureName(animalEnclosure) && validateNumberOfAnimals(animalEnclosure) && validateFeedingTime(animalEnclosure) 
-				&& validateEnclosureCondition(animalEnclosure);
+				&& validateEnclosureCondition(animalEnclosure) && validateAnimal(animalEnclosure);
+	}
+	
+	public boolean validateAnimal(AnimalEnclosure animalEnclosure){
+		int animalId = animalEnclosure.getAnimal().getAnimalId();
+		if(animalId > 0){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 
-	private boolean validateEnclosureCondition(AnimalEnclosure animalEnclosure) throws Exception {
+	public boolean validateEnclosureCondition(AnimalEnclosure animalEnclosure) throws Exception {
 		try{
 			String enclosureCondition = animalEnclosure.getEnclosureCondition().getEnclosureCondition();
 			if(!enclosureCondition.equals("")){
@@ -28,8 +38,7 @@ public class AnimalEnclosureValidation {
 		}
 	}
 
-	private boolean validateFeedingTime(AnimalEnclosure animalEnclosure) throws Exception {
-		try{
+	public boolean validateFeedingTime(AnimalEnclosure animalEnclosure) {
 			Date feedingTime = animalEnclosure.getFeedingTime();
 			if(feedingTime != null){
 				return true;
@@ -37,12 +46,9 @@ public class AnimalEnclosureValidation {
 			else{
 				return false;
 			}
-		}catch(Exception e){
-			throw new Exception("Feeding Time is null");
-		}
 	}
 
-	private boolean validateNumberOfAnimals(AnimalEnclosure animalEnclosure) {
+	public boolean validateNumberOfAnimals(AnimalEnclosure animalEnclosure) {
 		int numberOfAnimals = animalEnclosure.getNumberOfAnimals();
 		if(numberOfAnimals > 0){
 			return true;
@@ -52,7 +58,7 @@ public class AnimalEnclosureValidation {
 		}
 	}
 
-	private boolean validateAnimalEnclosureName(AnimalEnclosure animalEnclosure) throws Exception {
+	public boolean validateAnimalEnclosureName(AnimalEnclosure animalEnclosure) throws Exception {
 		try{
 			String enclosureName = animalEnclosure.getAnimalEnclosureName().trim();
 			if(!enclosureName.equals("")){

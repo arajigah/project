@@ -39,8 +39,17 @@ public class AnimalEnclosureServiceImpl implements AnimalEnclosureService {
 	}
 
 	@Override
-	public void updateAnaimalEnclosure(AnimalEnclosure animalEnclosure) {
-		animalEnclosureDao.updateAnimalEncolsure(animalEnclosure);		
+	public void updateAnaimalEnclosure(AnimalEnclosure animalEnclosure) throws Exception {
+		try{
+			if(animalEnclosureValidation.validateAnimalEnclosure(animalEnclosure)){
+				animalEnclosureDao.updateAnimalEncolsure(animalEnclosure);
+			}
+			else{
+				throw new Exception("Animal Enclosure Not Valid");
+			}
+		}catch(Exception e){
+			throw new Exception(e.getMessage());
+		}
 	}
 
 	@Override
@@ -52,6 +61,14 @@ public class AnimalEnclosureServiceImpl implements AnimalEnclosureService {
 	@Override
 	public AnimalEnclosure getAnimalEnclosureById(Integer enclosureId) {
 		return animalEnclosureDao.getEnclosureById(enclosureId);
+	}
+
+	public void setAnimalEnclosureDao(AnimalEnclosureDao animalEnclosureDao) {
+		this.animalEnclosureDao = animalEnclosureDao;
+	}
+
+	public void setAnimalEnclosureValidation(AnimalEnclosureValidation animalEnclosureValidation) {
+		this.animalEnclosureValidation = animalEnclosureValidation;
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.catalyst.collector.daos.hibernate;
+package com.catalyst.project.validationtest;
 
 import static org.junit.Assert.*;
 

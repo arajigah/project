@@ -10,7 +10,7 @@ public interface AnimalEnclosureService {
 
 	void addAnimalEnclosure(AnimalEnclosure animalEnclosure) throws Exception;
 
-	void updateAnaimalEnclosure(AnimalEnclosure animalEnclosure);
+	void updateAnaimalEnclosure(AnimalEnclosure animalEnclosure) throws Exception;
 
 	void deleteAnimalEnclosure(Integer enclosureId);
 
