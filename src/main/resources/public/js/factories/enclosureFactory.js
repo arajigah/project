@@ -11,6 +11,12 @@ angular.module('mainModule').factory('enclosureFactory', ['$http', function($htt
         },
         getEnclosureById : function(enclosureId){
         	return $http.get("/animalEnclosure/" + enclosureId)
+        },
+        editAnimalEnclosure : function(enclosure){
+            return $http.post("/animalEnclosure", enclosure);
+        },
+        deleteEnclosure : function(enclosureId){
+        	return $http.delete("/animalEnclosure/" + enclosureId);
         }
     }
 }]);

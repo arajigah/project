@@ -1,5 +1,7 @@
-<div>{{enclosureInfo.animalEnclosureName}}</div>
-<div>{{enclosureInfo.animal}}</div>
-<div>{{enclosureInfo.numberOfAnimals}}</div>
-<div>{{enclosureInfo.feedingTime}}</div>
-<div>{{enclosureInfo.enclosureCondition.enclosureCondition}}</div>
+<div>Enclosure Name: {{enclosureInfo.animalEnclosureName}}</div>
+<div>Animal Inside Enclosure: {{enclosureInfo.animal.animalName}}</div>
+<div>Number of {{enclosureInfo.animal.animalName}}'s Inside of Enclosure: {{enclosureInfo.numberOfAnimals}}</div>
+<div>Feeding Time: {{enclosureInfo.feedingTime}}</div>
+<div>Enclosure Condition: {{enclosureInfo.enclosureCondition.enclosureCondition}}</div>
+<button class="btn btn-primary" ng-click="openEditModal(enclosureInfo.animalEnclosureId)">Edit Team</button>
+<button class="btn btn-danger" ng-click="deleteEnclosure(enclosureInfo.animalEnclosureId)">Delete Team</button>
