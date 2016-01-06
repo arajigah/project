@@ -44,7 +44,7 @@ public class AnimalValidation {
 			}
 			return result;
 		}catch(Exception e){
-			throw new Exception ("Animal Name is Null");
+			throw new Exception(e.getMessage());
 		}
 	}
 	

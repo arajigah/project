@@ -90,6 +90,5 @@ public class AnimalEnclosureDaoImpl implements AnimalEnclosureDao {
 	@Override
 	public void addAnimalEncolsure(AnimalEnclosure animalEnclosure) {
 		em.merge(animalEnclosure);
-		
 	}
 }
