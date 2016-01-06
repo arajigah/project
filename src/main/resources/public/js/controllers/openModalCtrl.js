@@ -22,15 +22,15 @@ angular.module('mainModule').controller('openModalCtrl', ['$scope','$uibModal', 
 	$scope.openModal2 = function(){
 		var modal1 = $uibModal.open({
             animation: true,
-            templateUrl: 'templates/modalInstance2.tpl.html',
-            controller: 'modalInstance2Ctrl'
+            templateUrl: 'templates/addAnimal.tpl.html',
+            controller: 'addAnimalCtrl'
         });
 	}
 	$scope.openModal3 = function(){
 		var modal1 = $uibModal.open({
             animation: true,
-            templateUrl: 'templates/modalInstance3.tpl.html',
-            controller: 'modalInstance3Ctrl'
+            templateUrl: 'templates/addFood.tpl.html',
+            controller: 'addFoodCtrl'
         });
 	}
 }])

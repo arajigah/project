@@ -1,4 +1,4 @@
-angular.module('mainModule').controller('modalInstance3Ctrl', ['$scope','$uibModalInstance','toastr', function($scope, $uibModalInstance, toastr){
+angular.module('mainModule').controller('addFoodCtrl', ['$scope','$uibModalInstance','toastr', function($scope, $uibModalInstance, toastr){
 
 	$scope.helloMessage = "modal3";
 	

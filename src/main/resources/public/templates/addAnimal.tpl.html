@@ -1,0 +1,23 @@
+<form class="center">
+    <div class="form-group">
+        <label>Animal Name</label>
+        <input id = "add_animal_name_input" type="text" ng-model="animal.animalName" class="form-control input" placeholder="Enter animal name" autofocus required/>
+    </div>
+    
+     <div class="form-group">
+        <label>Scientific Name</label>
+        <input id = "add_scientific_name_input" type="text" ng-model="animal.scientificName" class="form-control input" placeholder="Enter scientific name" autofocus required/>
+    </div>
+    <div class="form-group">
+        <label>Favorite Food</label>
+		<div id = "add_scientific_dropdown" ng-dropdown-multiselect="" options="foods" selected-model="favoriteFood" extra-settings="foodSettings" required></div>    
+	</div>
+    <div class="form-group">
+        <label>Informational Link</label>
+        <input id = "add_informational_link_input" type="text" ng-model="animal.informationalLink" class="form-control input" placeholder="Enter informational link" autofocus required/>
+    </div>
+    <button id = "add_animal_add_button" class="btn btn-success" ng-click="addAnimal(animal, favoriteFood)">Add</button>
+    <button id = "add_animal_cancel_button" class="btn btn-danger" ng-click="closeModal()">Cancel</button>
+    <p class = "required">** All Fields Are Required</p>
+</form>
+

@@ -28,6 +28,7 @@ public class AnimalValidation {
 		try{
 			boolean result = false;
 			String animalName = animal.getAnimalName().trim();
+			int animalId = animal.getAnimalId();
 			if(!animalName.equals("")){
 				result = true;
 			}
@@ -37,7 +38,8 @@ public class AnimalValidation {
 			List<Animal> existingAnimals = animalDao.getAllAnimals();
 			for(Animal a : existingAnimals){
 				String existingAnimalName = a.getAnimalName();
-				if(animalName.equals(existingAnimalName)){
+				int existingAnimalId = a.getAnimalId();
+				if(animalName.equals(existingAnimalName) && animalId != existingAnimalId){
 					result = false;
 					throw new Exception("Animal Name is already in use");
 				}

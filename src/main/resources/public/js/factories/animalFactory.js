@@ -3,5 +3,8 @@ angular.module('mainModule').factory('animalFactory', ['$http', function($http){
         getAnimals : function(){
             return $http.get("/animal");
         },
+        addAnimal : function(animal){
+        	return $http.post("/animal", animal);
+        }
     }
 }]);

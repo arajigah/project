@@ -10,6 +10,7 @@ angular.module('mainModule').controller('addEnclosureCtrl', ['$scope', '$filter'
     $scope.feedingTime.setHours(0);
     $scope.feedingTime.setMinutes(0);
     $scope.ismeridian = true;
+    $scope.enclosureConditionInput = "";
     
     //Settings for DropDowns
     $scope.enclosureConditionSettings = {externalIdProp: '', displayProp: 'enclosureCondition', idProp: 'enclosureConditionId', smartButtonMaxItems: 1, selectionLimit: 1};
@@ -38,6 +39,13 @@ angular.module('mainModule').controller('addEnclosureCtrl', ['$scope', '$filter'
     )
     
     $scope.addEnclosure = function(enclosure, feedingTime, enclosureCondition, enclosureAnimal){
+    	$scope.enclosure.enclosureCondition = {};
+    	if($scope.enclosureConditionInput != ""){
+    		$scope.enclosure.enclosureCondition.enclosureCondition = $scope.enclosureConditionInput;
+    	}
+    	else{
+            $scope.enclosure.enclosureCondition = enclosureCondition;
+    	}
         feedingTime.setSeconds(0);
         feedingTime.setMilliseconds(0);
         var feedingTimeJson = feedingTime.getTime();
@@ -45,8 +53,6 @@ angular.module('mainModule').controller('addEnclosureCtrl', ['$scope', '$filter'
         $scope.enclosure.feedingTime = feedingTimeJson;
         
         $scope.enclosure.animal = enclosureAnimal;
-        $scope.enclosure.enclosureCondition = {};
-        $scope.enclosure.enclosureCondition = enclosureCondition;
         enclosureFactory.addAnimalEnclosure(enclosure).then(
             function(success){
                 $scope.closeModal();
@@ -65,6 +71,7 @@ angular.module('mainModule').controller('addEnclosureCtrl', ['$scope', '$filter'
 	}
     
      $scope.changeBoolean = function(){
+    	$scope.enclosureConditionInput = "";
         $scope.show = !$scope.show;
      }
      
