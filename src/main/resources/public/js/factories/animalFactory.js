@@ -5,6 +5,9 @@ angular.module('mainModule').factory('animalFactory', ['$http', function($http){
         },
         addAnimal : function(animal){
         	return $http.post("/animal", animal);
+        },
+        getAnimalById : function(animalId){
+        	return $http.get("/animal/" + animalId);
         }
     }
 }]);

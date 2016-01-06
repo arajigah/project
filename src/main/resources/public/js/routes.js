@@ -17,9 +17,25 @@ angular.module('mainModule').config(['$stateProvider','$urlRouterProvider', func
         		return enclosureFactory.getEnclosureById($stateParams.id);
         	}
         }
-    }).state('home',{
+    })
+    .state('home',{
     	url: '/',
         templateUrl: 'templates/home.tpl.html',
         controller: 'homeCtrl'
+    })
+    .state('viewAllAnimals',{
+    	url: '/viewAnimals',
+        templateUrl: 'templates/viewAllAnimals.tpl.html',
+        controller: 'viewAnimalsCtrl'
+    })
+    .state('viewSingleAnimal',{
+    	url: '/viewAnimal/{id}',
+        templateUrl: 'templates/viewSingleAnimal.tpl.html',
+        controller: 'viewSingleAnimalCtrl',
+        resolve: {
+        	animalInfo : function($stateParams, animalFactory){
+        		return animalFactory.getAnimalById($stateParams.id);
+        	}
+        }
     })
 }])

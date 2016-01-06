@@ -20,6 +20,9 @@
         <script src= "js/controllers/addAnimalCtrl.js"></script>
         <script src= "js/controllers/addFoodCtrl.js"></script>
         <script src= "js/controllers/openModalCtrl.js"></script>
+        <script src= "js/controllers/viewAnimalsCtrl.js"></script>
+        <script src= "js/controllers/viewSingleAnimalCtrl.js"></script>
+        <script src= "js/controllers/animalEditCtrl.js"></script>
         <script src="js/factories/enclosureFactory.js"></script>
         <script src="js/factories/animalFactory.js"></script>
         <script src="js/factories/foodFactory.js"></script>
@@ -48,7 +51,7 @@
                     	<div ng-mouseleave="viewCollapsed = !viewCollapsed" uib-collapse="viewCollapsed" class="nav-collapse collapse navbar-responsive-collapse">
                   				<ul class="nav">
 				                    <li><a id= "view_enclosure" ui-sref="viewAllEnclosures">View Enclosures</a></li>
-				                    <li><a href="#">View Animals</a></li>
+				                    <li><a ui-sref="viewAllAnimals">View Animals</a></li>
 				                    <li><a href="#">View Foods</a></li>
                     			</ul>
                     	</div>

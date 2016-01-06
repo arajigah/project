@@ -1,4 +1,4 @@
-angular.module('mainModule').controller('addAnimalCtrl', ['$scope','$uibModalInstance','toastr','foodFactory','animalFactory', function($scope, $uibModalInstance, toastr, foodFactory, animalFactory){
+angular.module('mainModule').controller('animalEditCtrl', ['$scope','$uibModalInstance','toastr','foodFactory','animalFactory','animalEditInfo','$window', function($scope, $uibModalInstance, toastr, foodFactory, animalFactory, animalEditInfo, $window){
 
 	$scope.animal = {};
 	$scope.animal.animalName = "";
@@ -6,6 +6,11 @@ angular.module('mainModule').controller('addAnimalCtrl', ['$scope','$uibModalIns
 	$scope.animal.informationalLink = "";
 	$scope.foods = [];
 	$scope.favoriteFood = {};
+	
+	$scope.animal.animalName = animalEditInfo.animalName;
+	$scope.animal.scientificName = animalEditInfo.scientificName;
+	$scope.favoriteFood = animalEditInfo.favoriteFood;
+	$scope.animal.informationalLink = animalEditInfo.informationalLink;
 	
 	var foodData = foodFactory.getAllFoods().then(
 			function(success){
@@ -17,12 +22,13 @@ angular.module('mainModule').controller('addAnimalCtrl', ['$scope','$uibModalIns
 	$scope.foodText = {buttonDefaultText: 'Select Food'};
 	
 	
-	$scope.addAnimal = function(animal, favoriteFood){
+	$scope.editAnimal = function(animal, favoriteFood){
 		if($scope.validateAnimal(animal, favoriteFood)){
+			animal.animalId = animalEditInfo.animalId;
 			animal.favoriteFood = favoriteFood;
 			animalFactory.addAnimal(animal).then(
 					function(success){
-						console.log(success);
+						$window.location.reload();
 					},
 					function(error){
 						console.log(error);
