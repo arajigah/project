@@ -4,4 +4,6 @@ body{
 .pointer_cursor{
 	cursor: pointer;
 }
+.required{
+	color : red;
 }

@@ -1,2 +1,1 @@
-
-<div class="pointer_cursor" ng-repeat="enclosure in enclosures" ui-sref="viewSingleEnclosure({id:enclosure.animalEnclosureId})">{{enclosure.animalEnclosureName}}</div>
+<div id="enclosure_{{$index}}" class="pointer_cursor enclosures" ng-repeat="enclosure in enclosures" ui-sref="viewSingleEnclosure({id:enclosure.animalEnclosureId})">{{enclosure.animalEnclosureName}}</div>

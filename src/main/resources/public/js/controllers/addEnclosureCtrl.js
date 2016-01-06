@@ -53,7 +53,9 @@ angular.module('mainModule').controller('addEnclosureCtrl', ['$scope', '$filter'
                 toastr.success('Enclosure was added successfully');
             },
             function(error){
-                console.log(error);
+            	if(error.status == 500){
+            		toastr.error('All Fiels Are Required','The Enclosure was not valid');
+            	}
             }
         )
     }

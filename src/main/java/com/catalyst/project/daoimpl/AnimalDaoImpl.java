@@ -23,6 +23,24 @@ public class AnimalDaoImpl implements AnimalDao{
 		return em.createQuery("SELECT a from Animal a", Animal.class).getResultList();
 	}
 	
+	@Override
+	public Animal getAnimalById(Integer animalId) {
+		return em.createQuery("SELECT a from Animal a WHERE a.animalId = :animalId", Animal.class)
+				.setParameter("animalId", animalId)
+				.getSingleResult();
+	}
+
+	@Override
+	public void addAnimal(Animal animal) {
+		em.merge(animal);
+		
+	}
+
+	@Override
+	public void updateAnimal(Animal animal) {
+		em.merge(animal);
+	}
+	
 	public void setEm(EntityManager em) {
 		this.em = em;
 	}

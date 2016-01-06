@@ -1,29 +1,31 @@
 <form class="center">
     <div class="form-group">
         <label>Animal Enclosure Name</label>
-        <input type="text" ng-model="enclosure.animalEnclosureName" class="form-control input" placeholder="Enter enclosure name" autofocus />
+        <input id = "add_enclosure_name_input" type="text" ng-model="enclosure.animalEnclosureName" class="form-control input" placeholder="Enter enclosure name" autofocus required/>
     </div>
+    
      <div class="form-group">
         <label>Animal in Enclosure</label>
-    	<div ng-dropdown-multiselect="" options="animals" selected-model="enclosureAnimal" extra-settings="animalSettings"></div>
+    	<div id = "add_enclosure_anaml_dropdown" ng-dropdown-multiselect="" options="animals" selected-model="enclosureAnimal" extra-settings="animalSettings" required></div>
     </div>
     <div class="form-group">
         <label>Number of Animals in the Enclosure</label>
-        <input type="number" ng-model="enclosure.numberOfAnimals" class="form-control input" placeholder="Enter number of animals" autofocus />
+        <input id = "add_enclosure_number_of_animals_input" type="number" ng-model="enclosure.numberOfAnimals" class="form-control input" placeholder="Enter number of animals" autofocus required/>
     </div>
-    <div class="form-group">
+    <div class="form-group" id = "feeding_time">
         <label>Feeding Time</label>
-        <uib-timepicker ng-model="feedingTime" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></uib-timepicker>
+        <uib-timepicker id = "add_enclosure_feeding_time" ng-model="feedingTime" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian" required></uib-timepicker>
     </div>
     <div class="form-group">
         <label>Enclosure Condition</label>
-    	<div ng-dropdown-multiselect="" options="enclosureConditions" selected-model="enclosureCondition" extra-settings="enclosureConditionSettings" ng-hide="show"></div>
-    	<input type="text" ng-model="enclosureCondition.enclosureCondition" class="form-control input" placeholder="Enter Enclosure Condition" autofocus ng-show="show"/>
-    	<button class="btn btn-primary" ng-click="changeBoolean()" ng-show="show && existingConditions">Add existing enclosure condition</button>
-    	<button class="btn btn-primary" ng-click="changeBoolean()" ng-hide="show">Add new enclosure condition</button>
+    	<div id = "add_enclosure_condition_dropdown" ng-dropdown-multiselect="" options="enclosureConditions" selected-model="enclosureCondition" extra-settings="enclosureConditionSettings" ng-hide="show" required></div>
+    	<input id = "add_enclosure_condition_input" type="text" ng-model="enclosureCondition.enclosureCondition" class="form-control input" placeholder="Enter Enclosure Condition" autofocus ng-show="show" required/>
+    	<button id = "add_enclosure_existing_condition" class="btn btn-primary" ng-click="changeBoolean()" ng-show="show && existingConditions">Add existing enclosure condition</button>
+    	<button id = "add_enclosure_new_condition" class="btn btn-primary" ng-click="changeBoolean()" ng-hide="show">Add new enclosure condition</button>
     </div>
-    <button class="btn btn-success" ng-click="addEnclosure(enclosure, feedingTime, enclosureCondition, enclosureAnimal)">Add</button>
-    <button class="btn btn-danger" ng-click="closeModal()">Cancel</button>
+    <button id = "add_enclosure_add_button" class="btn btn-success" ng-click="addEnclosure(enclosure, feedingTime, enclosureCondition, enclosureAnimal)">Add</button>
+    <button id = "add_enclosure_cancel_button" class="btn btn-danger" ng-click="closeModal()">Cancel</button>
+    <p class = "required">** All Fields Are Required</p>
 </form>
 
 

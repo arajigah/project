@@ -17,5 +17,9 @@ angular.module('mainModule').config(['$stateProvider','$urlRouterProvider', func
         		return enclosureFactory.getEnclosureById($stateParams.id);
         	}
         }
+    }).state('home',{
+    	url: '/',
+        templateUrl: 'templates/home.tpl.html',
+        controller: 'homeCtrl'
     })
 }])

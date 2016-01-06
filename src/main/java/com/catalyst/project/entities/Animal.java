@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="animal")
@@ -18,16 +19,20 @@ public class Animal {
 	@Column(name="animal_id")
 	private int animalId;
 	
+	@NotNull
 	@Column(name="animal_name")
 	private String animalName;
 	
+	@NotNull
 	@Column(name="scientific_name")
 	private String scientificName;
 	
+	@NotNull
 	@ManyToOne
 	@JoinColumn(name="favorite_food_id")
 	private FavoriteFood favoriteFood;
 	
+	@NotNull
 	@Column(name="informational_link")
 	private String informationalLink;
 

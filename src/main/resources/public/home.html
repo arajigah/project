@@ -16,6 +16,7 @@
         <script src= "js/controllers/viewEnclosuresCtrl.js"></script>
         <script src= "js/controllers/viewSingleEnclosureCtrl.js"></script>
         <script src= "js/controllers/enclosureEditCtrl.js"></script>
+        <script src= "js/controllers/homeCtrl.js"></script>
         <script src= "js/controllers/modalInstance2Ctrl.js"></script>
         <script src= "js/controllers/modalInstance3Ctrl.js"></script>
         <script src= "js/controllers/openModalCtrl.js"></script>
@@ -32,20 +33,20 @@
                         </div>
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
-                                <li><a class = "nav-bar-option " ng-mouseover="addCollapsedMenu()">Add</a></li>
-                                <li><a class = "nav-bar-option " ng-mouseover="viewCollapsedMenu()">View</a></li>
+                                <li><a class = "nav-bar-option " ng-mouseover="addCollapsedMenu()" id="add_nav_collapse">Add</a></li>
+                                <li><a class = "nav-bar-option " ng-mouseover="viewCollapsedMenu()" id="view_nav_collapse">View</a></li>
                             </ul>
                         </div>
                         <div ng-mouseleave="addCollapsed = !addCollapsed" uib-collapse="addCollapsed" class="collapse">
                   				<ul class="nav">
-									<li><a ng-click="openEnclosureModal()">Add Enclosure</a></li>
+									<li><a id= "add_enclosure" ng-click="openEnclosureModal()">Add Enclosure</a></li>
 	                                <li><a ng-click="openModal2()">Add Animal</a></li>
 	                                <li><a ng-click="openModal3()">Add Food</a></li>
                     			</ul>
                     	</div>
                     	<div ng-mouseleave="viewCollapsed = !viewCollapsed" uib-collapse="viewCollapsed" class="nav-collapse collapse navbar-responsive-collapse">
                   				<ul class="nav">
-				                    <li><a ui-sref="viewAllEnclosures">View Enclosures</a></li>
+				                    <li><a id= "view_enclosure" ui-sref="viewAllEnclosures">View Enclosures</a></li>
 				                    <li><a href="#">View Animals</a></li>
 				                    <li><a href="#">View Foods</a></li>
                     			</ul>

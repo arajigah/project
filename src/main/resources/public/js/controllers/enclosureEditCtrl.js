@@ -66,7 +66,9 @@ angular.module('mainModule').controller('enclosureEditCtrl', ['$scope', '$filter
                 toastr.success('Enclosure was edited successfully');
             },
             function(error){
-                console.log(error);
+            	if(error.status == 500){
+            		toastr.error('All Fiels Are Required','The Enclosure was not valid');
+            	}
             }
         )
     }

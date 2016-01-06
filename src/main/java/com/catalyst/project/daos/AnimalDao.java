@@ -8,4 +8,10 @@ public interface AnimalDao {
 
 	List<Animal> getAllAnimals();
 
+	Animal getAnimalById(Integer animalId);
+
+	void addAnimal(Animal animal);
+
+	void updateAnimal(Animal animal);
+
 }
